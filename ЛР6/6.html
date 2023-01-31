@@ -1,0 +1,162 @@
+
+<html lang ="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+	 <link href="style.css" rel="stylesheet" media="all" />
+	<title>Лабораторная работа №6</title>
+	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="scroll.js"></script>
+</head>
+<body bgcolor="#FBFBFB" >
+	<div class = "site-bar">
+		<div class = "site-minibar">
+  			<div class="theory-block">
+    			<a href="#theory" class="theory-button">Теория</a>
+  			</div>
+  			<div class="practice-block">
+    			<a href="#practice" class="practice-button">Практика</a>
+  			</div>
+  			<div class="report-block">
+    			<a href="#report" class="report-button">Отчет</a>
+ 			</div>
+  			<div class="timer-block">
+      			<a href="#timer" class="timer-button">Секундомер</a><br>
+            <script language="JavaScript" type="text/javascript">
+            var base = 60; 
+            var clocktimer,dateObj,dh,dm,ds,ms; 
+            var readout=''; 
+            var h=1, m=1, tm=1,s=0,ts=0,ms=0,show=true, init=0, ii=0; 
+            function clearСlock() { 
+              clearTimeout(clocktimer); 
+              h=1;m=1;tm=1;s=0;ts=0;ms=0; 
+              init=0;show=true; 
+              readout='00:00:00.00'; 
+              document.TestForm.stopwatch.value=readout; 
+              ii = 0; 
+            } 
+            function startTIME() { 
+              var cdateObj = new Date(); 
+              var t = (cdateObj.getTime() - dateObj.getTime())-(s*1000); 
+              if (t>999) { s++; } 
+              if (s>=(m*base)) { 
+                ts=0; 
+                m++; 
+              } else { 
+                ts=parseInt((ms/100)+s); 
+                if(ts>=base) { ts=ts-((m-1)*base); } 
+              } 
+              if (m>(h*base)) { 
+                tm=1; 
+                h++; 
+              } else { 
+                tm=parseInt((ms/100)+m); 
+                if(tm>=base) { tm=tm-((h-1)*base); } 
+              } 
+              ms = Math.round(t/10); 
+              if (ms>99) {ms=0;} 
+              if (ms==0) {ms='00';} 
+              if (ms>0&&ms<=9) { ms = '0'+ms; } 
+              if (ts>0) { ds = ts; if (ts<10) { ds = '0'+ts; }} else { ds = '00'; } 
+              dm=tm-1; 
+              if (dm>0) { if (dm<10) { dm = '0'+dm; }} else { dm = '00'; } 
+              dh=h-1; 
+              if (dh>0) { if (dh<10) { dh = '0'+dh; }} else { dh = '00'; } 
+              readout = dh + ':' + dm + ':' + ds + '.' + ms; 
+              if (show==true) { document.TestForm.stopwatch.value = readout; } 
+              clocktimer = setTimeout("startTIME()",1); 
+            } 
+            //функция для паузы
+            function pause() { 
+              if (init==0) { dateObj = new Date(); 
+              startTIME(); 
+              init=1; 
+              } else { if(show==true) { 
+              show=false; 
+              } else { show=true; } } 
+            } 
+            </script> 
+            <form name=TestForm>   
+              <input name=stopwatch size=10 value="00:00:00.00">  
+              <input type=button value="Обнулить" onclick="clearСlock()">  
+              <input type=button value="Старт/Стоп" onclick="pause()"> 
+            </form>
+  			</div>
+  		</div>
+	</div>
+
+
+	<div class = "site-header">
+		<div class = "text-title">
+      <div class = "img-main" ><img src="device.gif" width="350px" alt="device"></div>
+        <div class = "text-part">
+          Лабораторная работа №6
+          <p class = "text-name">«Определение момента инерции тела методом крутильных колебаний»</p>
+          <div class = "button-begin">
+            <a href="#theory"><i>Начать работу</i></a>
+          </div>
+        </div>
+		</div>
+	</div>
+
+  <div class = "site-tutorial" id = "theory">
+    <div class = "text-title">
+      Перед началом ознакомьтесь с <br>
+      <a class = "text-underlined" href="theory.doc" download>ТЕОРИЕЙ</a><br>
+      <img src="book.jpg" width="700" alt="lorem">
+      <div class = "button-begin">
+          <a href="#practice"><i>Приступить</i></a>
+      </div>
+      </div>
+    </div>
+
+  <div class = "site-practice" id ="practice">
+    <div class = "text-title">
+      Опыт 1<br>
+      <video id="video1" width="800px" height="450px" controls="controls" loop="loop">
+         <source src="1.mp4" loop="loop" type='video/mp4;       codecs="avc1.42E01E, mp4a.40.2"'>
+   		 <source src="1.WebM" type='video/webm; 				codecs="vp8, vorbis"'>
+      </video>
+      <br>Опыт 2<br>
+      <video id="video2" width="800px" height="450px" controls="controls" loop="loop">
+         <source src="2.mp4" loop="loop" type='video/mp4;       codecs="avc1.42E01E, mp4a.40.2"'>
+   		 <source src="2.WebM" type='video/webm; 				codecs="vp8, vorbis"'>
+      </video>
+      <br>Опыт 3<br>
+      <video id="video3" width="800px" height="450px" controls="controls" loop="loop">
+         <source src="3.mp4" loop="loop" type='video/mp4;       codecs="avc1.42E01E, mp4a.40.2"'>
+   		 <source src="3.WebM" type='video/webm; 				codecs="vp8, vorbis"'>
+      </video>
+      <br>Опыт 4<br>
+      <video id="video4" width="800px" height="450px" controls="controls" loop="loop">
+         <source src="4.mp4" loop="loop" type='video/mp4;       codecs="avc1.42E01E, mp4a.40.2"'>
+   		 <source src="4.WebM" type='video/webm; 				codecs="vp8, vorbis"'>
+      </video>
+      <div class = "button-begin">
+          <a href="#report"><i>Отчёт</i></a>
+      </div>      
+    </div>
+  </div>
+
+  <div class = "site-report" id = "report">
+    <div class = "text-title">
+      Полученные данные занесите в<br><br>
+      <a class = "text-underlined" href="report.doc" download>ТАБЛИЦУ</a><br><br>
+      Произведите расчеты, оформите и отправьте по адресу djerenova_a_v@pstu.edu или нажмите "Отправить"<br>
+      Студенты ДО могут предоставить преподавателю отчет в печатном виде во время сессии.
+      <br><br><br><br>
+      <div class = "button-send">
+        <a href="http://ds.pstu.edu/mod/assign/view.php?id=48711&action=editsubmission"><i>Отправить</i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class = "site-copyright">
+    <div class = "text-copyright">
+      ГВУЗ "Приазовский государственный технический университет"<br>
+      Факультет информационных технологий<br>
+      Кафедра физики &copy;2020
+    </div>
+  </div>
+</body>
+</html>
