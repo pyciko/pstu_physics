@@ -1,6 +1,6 @@
 @font-face {
     font-family: digital;
-    src: url('C:/Users/egorw/Desktop/Научна робота/digital.ttf');
+    src: url('../digital.ttf');
   }
   
   .light-left {

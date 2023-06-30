@@ -45,7 +45,7 @@ main {
 }
 
 .modal1 {
-    z-index: 120;
+    z-index: 130;
     display: none;
     flex-direction: column;
     justify-content: center;
